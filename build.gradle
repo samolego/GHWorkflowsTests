@@ -68,13 +68,12 @@ jar {
 	}
 }
 
-def modRepo = System.env.REPO_NAME
 // configure the maven publication
 publishing {
 	repositories {
 		maven {
 		    name = "GitHubPackages"
-		    url = uri("https://maven.pkg.github.com/" + modRepo.toLowerCase())
+		    url = uri("https://maven.pkg.github.com/" + System.getenv("REPO_NAME").toLowerCase())
 		    credentials {
 			username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
 			password = project.findProperty("gpr.key") ?: System.getenv("PASSWORD")
