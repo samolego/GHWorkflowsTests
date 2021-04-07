@@ -18,6 +18,8 @@ repositories {
     // for more information about repositories.
 }
 
+def ENV = System.getenv()
+
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -73,10 +75,10 @@ publishing {
 	repositories {
 		maven {
 		    name = "GitHubPackages"
-		    url = uri("https://maven.pkg.github.com/")
+		    url = uri("https://maven.pkg.github.com/org/samo_lego/GHWorkflowsTests")
 		    credentials {
-			username = System.getenv("GITHUB_ACTOR")
-			password = System.getenv("GITHUB_TOKEN")
+			username = ENV.USERNAME
+			password = ENV.PASSWORD
 		    }
 		}
 		// uncomment to publish to the local maven
